@@ -1,0 +1,71 @@
+.cmp-teamdetails__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    align-items: stretch;
+    gap: 1.5rem;
+}
+
+.cmp-teamdetails__card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0;
+    border: 1px solid #dedede;
+    border-radius: 0.5rem;
+    background: #fff;
+    box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 8%);
+}
+
+.cmp-teamdetails__photo {
+    display: block;
+    width: 100%;
+    height: 14rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+.cmp-teamdetails__content {
+    flex: 1;
+    padding: 1.25rem;
+}
+
+.cmp-teamdetails__name {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+}
+
+.cmp-teamdetails__role-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.cmp-teamdetails__role {
+    margin: 0;
+}
+
+.cmp-teamdetails__toggle {
+    padding: 0.4rem 0.7rem;
+    border: 1px solid #777;
+    border-radius: 0.25rem;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.cmp-teamdetails__toggle:hover,
+.cmp-teamdetails__toggle:focus-visible {
+    background: #f2f2f2;
+}
+
+.cmp-teamdetails__empty {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 30rem) {
+    .cmp-teamdetails__grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,40 @@
+<section class="cmp-teamdetails" data-teamdetails>
+    <div class="cmp-teamdetails__grid">
+        <sly data-sly-list.team="${resource.listChildren}">
+            <sly data-sly-test="${team.name == 'teamMembers'}">
+                <sly data-sly-list.member="${team.listChildren}">
+                    <article class="cmp-teamdetails__card">
+                        <img class="cmp-teamdetails__photo"
+                             data-sly-test="${member.valueMap.photo}"
+                             src="${member.valueMap.photo}"
+                             alt="${member.valueMap.name}"
+                             loading="lazy">
+                        <div class="cmp-teamdetails__content">
+                            <h3 class="cmp-teamdetails__name">${member.valueMap.name}</h3>
+                            <div class="cmp-teamdetails__role-row" data-sly-test="${member.valueMap.role}">
+                                <p class="cmp-teamdetails__role" data-teamdetails-role>${member.valueMap.role}</p>
+                                <button class="cmp-teamdetails__toggle"
+                                        type="button"
+                                        data-teamdetails-toggle
+                                        aria-expanded="true">Hide role</button>
+                            </div>
+                        </div>
+                    </article>
+                </sly>
+                <p class="cmp-teamdetails__empty"
+                   data-sly-test="${wcmmode.edit && !team.hasChildren}">
+                    Add team members to display them here.
+                </p>
+            </sly>
+        </sly>
+        <p class="cmp-teamdetails__empty"
+           data-sly-test="${wcmmode.edit && !resource.listChildren}">
+            Add team members to display them here.
+        </p>
+    </div>
+</section>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.css @ categories='mysite.teamdetails'}"/>
+    <sly data-sly-call="${clientlib.js @ categories='mysite.teamdetails'}"/>
+</sly>
